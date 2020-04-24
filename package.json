@@ -1,0 +1,25 @@
+{
+  "name": "profile-plaza-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nuxt",
+    "generate": "nuxt generate",
+    "validate:jsonSchema": "ajv validate -s schemas/profiles.json -d static/profiles.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@nuxtjs/axios": "^5.9.7",
+    "ajv-cli": "^3.1.0",
+    "axios": "^0.19.2",
+    "frontmatter-markdown-loader": "^3.3.0",
+    "nuxt": "^2.12.2",
+    "tailwindcss-gradients": "^3.0.0"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@nuxtjs/tailwindcss": "^1.4.0"
+  }
+}

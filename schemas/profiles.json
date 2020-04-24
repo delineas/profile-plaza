@@ -1,0 +1,169 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "title": "The Root Schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": [],
+    "additionalItems": true,
+    "items": {
+        "$id": "#/items",
+        "type": "object",
+        "title": "The Items Schema",
+        "description": "An explanation about the purpose of this instance.",
+        "default": {},
+        "examples": [{
+            "github": "https://github.com/johnpng",
+            "twitter": "https://twitter.com/johnpangolin",
+            "name": "John Pangolin",
+            "flag": "🇯🇲",
+            "headline": "JavaScript y al diablo con el resto",
+            "main_skills": "Frontend",
+            "skills": [
+                "VueJS",
+                "Python",
+                "Elasticsearch",
+                "SQLite",
+                "PHP",
+                "Management"
+            ],
+            "website": "https://johnpangolin.com",
+            "premium": true,
+            "status": "💃"
+        }],
+        "additionalProperties": true,
+        "required": [
+            "name",
+            "headline",
+            "status",
+            "flag",
+            "main_skills",
+            "skills",
+            "website",
+            "twitter",
+            "github",
+            "premium"
+        ],
+        "properties": {
+            "name": {
+                "$id": "#/items/properties/name",
+                "type": "string",
+                "title": "The Name Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "John Pangolin"
+                ]
+            },
+            "headline": {
+                "$id": "#/items/properties/headline",
+                "type": "string",
+                "title": "The Headline Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "JavaScript y al diablo con el resto"
+                ]
+            },
+            "status": {
+                "$id": "#/items/properties/status",
+                "type": "string",
+                "title": "The Status Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "💃"
+                ]
+            },
+            "flag": {
+                "$id": "#/items/properties/flag",
+                "type": "string",
+                "title": "The Flag Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "🇯🇲"
+                ]
+            },
+            "main_skills": {
+                "$id": "#/items/properties/main_skills",
+                "type": "string",
+                "title": "The Main_skills Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "Frontend"
+                ]
+            },
+            "skills": {
+                "$id": "#/items/properties/skills",
+                "type": "array",
+                "title": "The Skills Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": [],
+                "examples": [
+                    [
+                        "VueJS",
+                        "Python",
+                        "Elasticsearch"
+                    ]
+                ],
+                "additionalItems": true,
+                "items": {
+                    "$id": "#/items/properties/skills/items",
+                    "type": "string",
+                    "title": "The Items Schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": "",
+                    "examples": [
+                        "VueJS",
+                        "Python",
+                        "Elasticsearch"
+                    ]
+                },
+                "minItems": 1,
+                "maxItems": 6
+            },
+            "website": {
+                "$id": "#/items/properties/website",
+                "type": "string",
+                "title": "The Website Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "https://johnpangolin.com"
+                ]
+            },
+            "twitter": {
+                "$id": "#/items/properties/twitter",
+                "type": "string",
+                "title": "The Twitter Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "https://twitter.com/johnpangolin"
+                ]
+            },
+            "github": {
+                "$id": "#/items/properties/github",
+                "type": "string",
+                "title": "The Github Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": "",
+                "examples": [
+                    "https://github.com/johnpng"
+                ]
+            },
+            "premium": {
+                "$id": "#/items/properties/premium",
+                "type": "boolean",
+                "title": "The Premium Schema",
+                "description": "An explanation about the purpose of this instance.",
+                "default": false,
+                "examples": [
+                    true
+                ]
+            }
+        }
+    }
+}
