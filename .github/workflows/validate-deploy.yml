@@ -7,6 +7,7 @@ on:
 jobs:
   verify-json-validation:
     runs-on: ubuntu-18.04
+    continue-on-error: false
     steps:
     - uses: actions/checkout@v1
     - name: Validate JSON
@@ -18,12 +19,10 @@ jobs:
       name: Dump Validate KO
       env:
         STEPS_CONTEXT: ${{ toJson(steps) }}
-      run: echo "$STEPS_CONTEXT"
-      continue-on-error: false        
+      run: echo "$STEPS_CONTEXT"          
     - if: success()
       name: Dump Validate Ok
       run: Validate!
-
   
   build-deploy:
     runs-on: ubuntu-18.04
