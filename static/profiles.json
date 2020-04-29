@@ -142,5 +142,31 @@
         "twitter": "https://twitter.com/johnpangolin",
         "github": "https://github.com/johnpng",
         "premium": true
+    },
+    {
+        "name": "John Pangolin",
+        "headline": "JavaScript y al diablo con el resto",
+        "status": "💃",
+        "flag": "🇯🇲",
+        "main_skills": "Frontend",
+        "skills": [
+            "VueJS",
+            "Python",
+            "Elasticsearch",
+            "SQLite",
+            "VueJS",
+            "Python",
+            "Elasticsearch",
+            "SQLite",
+            "VueJS",
+            "Python",
+            "Elasticsearch",
+            "SQLite",            
+            "Management"
+        ],
+        "website": "https://johnpangolin.com",
+        "twitter": "https://twitter.com/johnpangolin",
+        "github": "https://github.com/johnpng",
+        "premium": true
     }
 ]
