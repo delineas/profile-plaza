@@ -27,5 +27,9 @@ module.exports = {
     }
   },
 
-  buildModules: ["@nuxtjs/tailwindcss"]
+  buildModules: ["@nuxtjs/tailwindcss"],
+
+  purgeCSS: {
+    enabled: false
+  }
 };
