@@ -23,11 +23,7 @@ jobs:
     - if: success()
       name: Dump Validate Ok
       run: Validate!
-  
-  build-deploy:
-    runs-on: ubuntu-18.04
-    steps:
-    - uses: actions/checkout@master
+
 
     - name: Setup Node
       uses: actions/setup-node@v1
