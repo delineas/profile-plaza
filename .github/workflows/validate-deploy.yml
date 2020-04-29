@@ -14,16 +14,16 @@ jobs:
       env:
         INPUT_SCHEMA: /schemas/profiles.json
         INPUT_JSONS: /static/profiles.json
-        
-    - if: success()
-      name: Dump Validate Ok
-      run: Validate!
     - if: failure()
       name: Dump Validate KO
       env:
         STEPS_CONTEXT: ${{ toJson(steps) }}
       run: echo "$STEPS_CONTEXT"
-      continue-on-error: false
+      continue-on-error: false        
+    - if: success()
+      name: Dump Validate Ok
+      run: Validate!
+
   
   build-deploy:
     runs-on: ubuntu-18.04
