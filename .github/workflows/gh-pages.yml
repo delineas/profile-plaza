@@ -3,14 +3,19 @@ name: Github Pages Deploy
 on:
   pull_request:
     branches:
-    - master
+    - master    
+    types: [closed] 
 
 jobs:
   build-deploy:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@master
-
+    - name: Dump GitHub context
+      env:
+        GITHUB_CONTEXT: ${{ toJson(github) }}
+      run: echo "$GITHUB_CONTEXT"
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
