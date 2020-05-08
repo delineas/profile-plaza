@@ -10,32 +10,37 @@
     </header>
 
     <div class="flex-1 flex-wrap bg-gradient-t-black-900-300">
+      {{skills}}
       <div class="m-4 mb-0">
         <div class="flex flex-wrap">
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Full Stack</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Frontend</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Backend</button>
+          <button
+            type="button"
+            class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white"
+          >
+            Full Stack
+          </button>
+          <button
+            type="button"
+            class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white"
+          >
+            Frontend
+          </button>
+          <button
+            type="button"
+            class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white"
+          >
+            Backend
+          </button>
         </div>
-        <div class="flex mt-3 flex-wrap">
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">PHP</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Python</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Javascript</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Node</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">VUE</button>
-          <button type="button" class="p-2 px-4 mr-2 rounded-full bg-red-600 text-white">Now</button>
-        </div>
-        <div class="flex mt-3">
-          <label>
-            <input type="checkbox" value="php" v-model="selectSkills" />PHP
-          </label>
-          <label>
-            <input type="checkbox" value="node" v-model="selectSkills" />Node
-          </label>
-        </div>
+        <category-filters :categories="skills" @change="selectSkills = $event" ></category-filters>
       </div>
 
       <div class="md:flex md:flex-wrap p-2">
-        <profile-item v-for="profile in activeProfiles" :profile="profile"></profile-item>
+        <profile-item
+          v-for="(profile, index) in activeProfiles"
+          :key="index"
+          :profile="profile"
+        ></profile-item>
       </div>
     </div>
 
@@ -48,15 +53,18 @@
 <script>
 import profiles from "~/static/profiles.json";
 import ProfileItem from "~/components/ProfileItem.vue";
+import CategoryFilters from "~/components/CategoryFilters.vue";
 
 export default {
   components: {
-    ProfileItem
+    ProfileItem,
+    CategoryFilters
   },
   data() {
     return {
       selectSkills: [],
-      profiles
+      skills: [],
+      profiles,
     };
   },
   computed: {
@@ -65,12 +73,29 @@ export default {
         return this.profiles;
       }
 
-      return this.profiles.filter(profile =>
+      return this.profiles.filter((profile) =>
         this.selectSkills.every(
-          choice => profile.skills.indexOf(choice) != -1
+          (choice) => profile.skills.indexOf(choice) != -1
         )
       );
+    },
+  },
+  mounted() {
+    this.getSkills()
+  },
+  methods: {
+    getSkills() {
+      profiles.map(item => {
+        item.skills.map(skill => {
+          if(!this.checkIfExists(skill, this.skills)) {
+            this.skills.push(skill);
+          }
+        })
+      })
+    },
+    checkIfExists(search, items) {
+      return items.some(item => item === search)
     }
-  }
+  },
 };
 </script>

@@ -83,7 +83,8 @@
                 "default": "",
                 "examples": [
                     "🇯🇲"
-                ]
+                ],
+                "pattern": "(\\ud83c[\\ud000-\\udfff])"
             },
             "main_skills": {
                 "$id": "#/items/properties/main_skills",
