@@ -12,37 +12,38 @@
         "title": "The Items Schema",
         "description": "An explanation about the purpose of this instance.",
         "default": {},
-        "examples": [{
-            "github": "https://github.com/johnpng",
-            "twitter": "https://twitter.com/johnpangolin",
-            "name": "John Pangolin",
-            "flag": "🇯🇲",
-            "headline": "JavaScript y al diablo con el resto",
-            "main_skills": "Frontend",
-            "skills": [
-                "VueJS",
-                "Python",
-                "Elasticsearch",
-                "SQLite",
-                "PHP",
-                "Management"
-            ],
-            "website": "https://johnpangolin.com",
-            "premium": true,
-            "status": "💃"
-        }],
+        "examples": [
+            {
+                "github": "https://github.com/johnpng",
+                "twitter": "https://twitter.com/johnpangolin",
+                "name": "John Pangolin",
+                "flag": "🇯🇲",
+                "headline": "JavaScript y al diablo con el resto",
+                "main_skill": "Frontend",
+                "skills": [
+                    "VueJS",
+                    "Python",
+                    "Elasticsearch",
+                    "SQLite",
+                    "PHP",
+                    "Management"
+                ],
+                "website": "https://johnpangolin.com",
+                "premium": true,
+                "status": "💃"
+            }
+        ],
         "additionalProperties": true,
         "required": [
             "name",
             "headline",
             "status",
             "flag",
-            "main_skills",
+            "main_skill",
             "skills",
             "website",
             "twitter",
-            "github",
-            "premium"
+            "github"
         ],
         "properties": {
             "name": {
@@ -63,38 +64,47 @@
                 "default": "",
                 "examples": [
                     "JavaScript y al diablo con el resto"
-                ]
+                ],
+                "maxLength": 50
             },
             "status": {
                 "$id": "#/items/properties/status",
                 "type": "string",
                 "title": "The Status Schema",
-                "description": "An explanation about the purpose of this instance.",
+                "description": "Must be a emoji.",
                 "default": "",
                 "examples": [
                     "💃"
-                ]
+                ],
+                "pattern": "(\\u00a9|\\u00ae|[\\u2000-\\u3300]|\\ud83c[\\ud000-\\udfff]|\\ud83d[\\ud000-\\udfff]|\\ud83e[\\ud000-\\udfff])"
             },
             "flag": {
                 "$id": "#/items/properties/flag",
                 "type": "string",
                 "title": "The Flag Schema",
-                "description": "An explanation about the purpose of this instance.",
+                "description": "Must be a Flag emoji.",
                 "default": "",
                 "examples": [
                     "🇯🇲"
                 ],
                 "pattern": "(\\ud83c[\\ud000-\\udfff])"
             },
-            "main_skills": {
-                "$id": "#/items/properties/main_skills",
+            "main_skill": {
+                "$id": "#/items/properties/main_skill",
                 "type": "string",
-                "title": "The Main_skills Schema",
+                "title": "The main_skill Schema",
                 "description": "An explanation about the purpose of this instance.",
                 "default": "",
                 "examples": [
-                    "Frontend"
-                ]
+                    "Full Stack",
+                    "Frontend",
+                    "Backend",
+                    "Mobile",
+                    "Devops",
+                    "UI/UX",
+                    "Designer"
+                ],
+                "pattern": "^(Full Stack|Frontend|Backend|Mobile|Devops|UI/UX|Designer)$"
             },
             "skills": {
                 "$id": "#/items/properties/skills",

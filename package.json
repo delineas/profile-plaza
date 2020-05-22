@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nuxt",
     "generate": "nuxt generate",
-    "validate:jsonSchema": "ajv validate -s schemas/profiles.json -d static/profiles.json"
+    "validate:jsonSchema": "ajv validate -s schemas/profiles.json -d static/profiles.json --unicode=true --verbose --json-pointers"
   },
   "author": "",
   "license": "ISC",

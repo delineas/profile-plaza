@@ -1,13 +1,17 @@
 <template>
   <div class="flex flex-col min-h-screen">
-    <header class="flex justify-between p-4 bg-blue-900">
-      <h1 class="text-2xl text-white font-bold">Profile Plaza</h1>
-      <input
-        class="shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline w-1/2"
-        type="search"
-        placeholder="Busca..."
-      />
-    </header>
+    <header class="flex justify-between bg-blue-900">
+        <nuxt-link to="/" class="m-4">
+            <div class="flex flex-col">
+                <h1 class="text-3xl text-white font-bold">Reactivers</h1>
+                <h1 class="text-mc text-white font-bold">Directorio developers</h1>
+            </div>
+        </nuxt-link>
+        <div class="min-h-full flex">
+            <nuxt-link to="/about" class="mx-3 my-1 px-2 md:px-6 py-8 bg-blue-600 font-bold text-gray-200">¿Qué es esto?</nuxt-link>
+            <nuxt-link to="/signup" class="mx-3 my-1 px-2 md:px-6 py-8 bg-blue-600 font-bold text-gray-200">Añadir mi ficha</nuxt-link>
+        </div>
+    </header> 
 
     <div class="flex-1 flex-wrap bg-gradient-t-black-900-300">
       {{skills}}

@@ -1,8 +1,8 @@
-name: Validate JSONs
+name: Validate JSON
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   verify-json-validation:
